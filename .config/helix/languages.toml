@@ -1,0 +1,134 @@
+[use-grammars]
+only = [
+  "fish", "nix",
+  "markdown",
+]
+
+#(*) DOCS >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  
+[[language]]
+name = "markdown"
+scope = "source.md"
+injection-regex = "md|markdown"
+file-types = ["md"]
+roots = []
+
+indent = { tab-width = 2, unit = "  " }
+auto-format = true
+
+[language.language-server]
+command = "deno"
+args = ["lsp"]
+
+[language.config]
+enable = true
+lint = false
+testing = { enable = false }
+
+[[grammar]]
+name = "markdown"
+
+[grammar.source]
+git = "https://github.com/MDeiml/tree-sitter-markdown"
+subpath = "tree-sitter-markdown"
+
+
+[[language]]
+name = "markdown.inline"
+scope = "source.markdown.inline"
+injection-regex = "markdown\\.inline"
+file-types = []
+roots = []
+grammar = "markdown_inline"
+
+[[grammar]]
+name = "markdown_inline"
+
+[grammar.source]
+git = "https://github.com/MDeiml/tree-sitter-markdown"
+subpath = "tree-sitter-markdown-inline"
+
+#<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< DOCS (*)#
+
+#(*) CONFIG >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+[[language]]
+name = "toml"
+scope = "source.toml"
+injection-regex = "toml"
+file-types = ["toml"]
+roots = []
+comment-token = "#"
+
+indent = { tab-width = 2, unit = "  " }
+auto-format = true
+
+[language.language-server]
+command = "taplo"
+args = ["lsp", "stdio"]
+
+[language.auto-pairs]
+'[' = ']'
+'{' = '}'
+'"' = '"'
+"'" = "'"
+
+
+[[language]]
+name = "json"
+scope = "source.json"
+injection-regex = "jsonc?"
+file-types = ["json", "jsonc"]
+roots = []
+
+indent = { tab-width = 2, unit = "  " }
+auto-format = true
+
+[language.language-server]
+command = "deno"
+args = ["lsp"]
+
+[language.config]
+enable = true
+lint = true
+testing = { enable = false }
+
+#<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< CONFIG (*)#
+
+#(*) SHELL >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+[[language]]
+name = "fish"
+scope = "source.fish"
+injection-regex = "fish"
+file-types = ["fish"]
+shebangs = ["fish"]
+roots = []
+comment-token = "#"
+
+indent = { tab-width = 4, unit = "    " }
+
+[[grammar]]
+name = "fish"
+
+[grammar.source]
+git = "https://github.com/ram02z/tree-sitter-fish"
+
+
+[[language]]
+name = "bash"
+scope = "source.bash"
+injection-regex = "(shell|bash|zsh|sh)"
+file-types = ["sh", "bash", "zsh", ".bash_login", ".bash_logout", ".bash_profile", ".bashrc", ".profile", ".zshenv", ".zlogin", ".zlogout", ".zprofile", ".zshrc", "APKBUILD", "PKGBUILD", "eclass", "ebuild", "bazelrc", ".bash_aliases"]
+shebangs = ["sh", "bash", "dash", "zsh"]
+roots = []
+comment-token = "#"
+
+indent = { tab-width = 2, unit = "  " }
+auto-format = true
+
+[language.language-server]
+command = "bash-language-server"
+args = ["start"]
+
+#<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< SHELL (*)#

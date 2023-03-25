@@ -1,6 +1,6 @@
 [use-grammars]
 only = [
-  "fish", "nix",
+  "fish", "nix", "yaml",
   "markdown", "markdown_inline",
   "scss", "astro", "vue", "svelte",
 ]
@@ -72,6 +72,35 @@ args = ["lsp", "stdio"]
 '{' = '}'
 '"' = '"'
 "'" = "'"
+
+
+[[language]]
+name = "yaml"
+scope = "source.yaml"
+injection-regex = "yml|yaml"
+file-types = ["yml", "yaml"]
+roots = []
+comment-token = "#"
+
+indent = { tab-width = 2, unit = "  " }
+auto-format = true
+
+[language.language-server]
+command = "yaml-language-server"
+args = ["--stdio"]
+
+[language.auto-pairs]
+'{' = '}'
+'(' = ')'
+'`' = '`'
+'"' = '"'
+"'" = "'"
+
+[[grammar]]
+name = "yaml"
+
+[grammar.source]
+git = "https://github.com/ikatyang/tree-sitter-yaml"
 
 
 [[language]]

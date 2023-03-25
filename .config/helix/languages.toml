@@ -1,6 +1,7 @@
 [use-grammars]
 only = [
-  "fish", "nix", "yaml",
+  "fish", "awk",
+  "nix", "yaml", "kdl",
   "markdown", "markdown_inline",
   "scss", "astro", "vue", "svelte",
 ]
@@ -51,6 +52,21 @@ subpath = "tree-sitter-markdown-inline"
 
 #<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< DOCS (*)#
 #(*) CONFIG >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>#
+
+[[language]]
+name = "kdl"
+scope = "source.kdl"
+file-types = ["kdl"]
+roots = []
+comment-token = "//"
+injection-regex = "kdl"
+
+[[grammar]]
+name = "kdl"
+
+[grammar.source]
+git = "https://github.com/Unoqwy/tree-sitter-kdl"
+
 
 [[language]]
 name = "toml"

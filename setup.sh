@@ -42,7 +42,9 @@ apk add \
   procs
   
 echo === Prepare code-utils ===
-apk add git delta tokei
+apk add git \
+  gnupg openssh \
+  delta tokei
 
 fish
 )

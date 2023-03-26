@@ -1,7 +1,9 @@
 #!/bin/sh
 
 echo === Prepare SHELL ===
-apk add fish starship zoxide fzf
+apk add fish \
+  starship zellij \
+  zoxide fzf
 cp -r .config/fish ~/.config/
 fish <(cat <<-fish
 fish_add_path -p ~/.local/bin /usr/local/bin

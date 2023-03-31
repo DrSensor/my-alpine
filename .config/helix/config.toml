@@ -1,0 +1,47 @@
+# https://github.com/helix-editor/helix/blob/master/helix-term/src/config.rs#L12-L20
+
+theme = "noctis"
+
+[editor] # https://github.com/helix-editor/helix/blob/master/helix-view/src/editor.rs#L109-L146
+bufferline = "multiple"
+line-number = "relative"
+auto-pairs  = true
+cursorline = true
+cursorcolumn = true
+color-modes = true
+completion-trigger-len = 1
+idle-timeout = 0
+
+# mobile screen
+gutters = ["diagnostics", "line-numbers", "diff"]
+scroll-lines = 1
+
+[editor.indent-guides]
+render = true
+character = "┊" # Some characters that work well: "▏", "┆", "┊", "⸽"
+skip-levels = 1
+
+[editor.cursor-shape]
+insert = "bar"
+select = "underline"
+
+[editor.statusline]
+left = ["mode", "separator", "file-name", "spinner"]
+center = ["selections", "separator", "file-type", "diagnostics"]
+right = ["position-percentage", "separator", "position"]
+separator = ""
+
+[editor.file-picker]
+hidden = false
+
+[editor.lsp]
+display-messages = true
+
+[keys.normal]
+S-tab = ":format"
+D = ["extend_to_line_end", "delete_selection_noyank"]
+V = "extend_line"
+
+[keys.insert]
+S-tab = ":format"
+C-s = ":write"

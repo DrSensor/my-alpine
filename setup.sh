@@ -46,7 +46,8 @@ apk add \
 echo === Prepare code-utils ===
 apk add git \
   gnupg openssh \
-  delta tokei
+  delta difftastic \
+  tokei
 
 fish
 )

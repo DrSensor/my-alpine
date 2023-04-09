@@ -1,0 +1,26 @@
+[alias]
+	difft = difftool
+[core]
+    pager = delta
+[pager]
+	difftool = true
+[diff]
+	tool = difftastic
+[difftool]
+	prompt = false
+[difftool "difftastic"]
+	cmd = difft "$LOCAL" "$REMOTE"
+[interactive]
+    diffFilter = delta --color-only --features=interactive
+[delta]
+	syntax-theme = OneHalfDark
+    features = line-numbers hyperlinks decorations
+[delta "line-numbers"]
+	line-numbers = true
+	line-numbers-left-format = ""
+	line-numbers-right-format = "{np}│ "
+[delta "interactive"]
+    keep-plus-minus-markers = false
+[delta "hyperlinks"]
+	hyperlinks = true
+	hyperlinks-file-link-format = "file-line://{path}:{line}"

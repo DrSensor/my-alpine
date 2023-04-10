@@ -1,11 +1,10 @@
 #!/bin/sh
 
 echo === Prepare SHELL ===
-apk add fish \
-  starship zellij \
-  zoxide fzf
+apk add fish
 cp -r .config/fish ~/.config/
 fish <(cat <<-fish
+apk add starship fzf zellij zoxide
 fish_add_path -p ~/.local/bin /usr/local/bin
 fish_add_path -a /sbin
 set -U COLORTERM truecolor
